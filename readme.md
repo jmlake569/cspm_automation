@@ -1,4 +1,3 @@
-Absolutely. Here's a README.md content for the given code:
 
 ---
 
