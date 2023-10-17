@@ -1,6 +1,4 @@
 
----
-
 ## Conformity Report Configuration Updater
 
 This script allows Cloud One Conformity customers to update the date filters of specific report configurations by specifying a date range.
@@ -48,6 +46,3 @@ Logging has been set up to provide information on any errors encountered during 
 
 To customize the script, such as adding additional attributes to update in the report configuration, you can modify the payload in the `update_report_configuration` function.
 
----
-
-You can save this content in a `README.md` file. This will provide an overview and guidance for anyone who wants to use the script and is a Conformity customer.
