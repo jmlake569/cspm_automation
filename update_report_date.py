@@ -1,10 +1,14 @@
+import os
 import requests
 import json
 import datetime
 import logging
+from dotenv import load_dotenv
+
+load_dotenv()
 
 REGION = "us-1"
-C1_API_KEY = "<YOUR_API_KEY_HERE>"
+C1_API_KEY = os.getenv('API_KEY')
 
 # Set up a logger
 logger = logging.getLogger(__name__)
@@ -18,7 +22,7 @@ class ApiException(Exception):
 
 def get_report_configurations(base_url, headers):
     try:
-        response = requests.get(base_url, headers=headers)
+        response = requests.get(base_url, headers=headers, verify=False)
         response.raise_for_status()
         return response.json()
     except requests.exceptions.HTTPError:
@@ -48,7 +52,7 @@ def update_report_configuration(report_id, title, days_difference_start, days_di
 }
 
     try:
-        response = requests.patch(update_url, headers=headers, json=payload)
+        response = requests.patch(update_url, headers=headers, json=payload, verify=False)
         response.raise_for_status()
     except requests.exceptions.HTTPError:
         headers = response.headers
